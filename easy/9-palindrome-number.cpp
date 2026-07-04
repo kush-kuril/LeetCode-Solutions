@@ -1,16 +1,35 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
-        std::string dih {std::to_string(x)};
-        std::size_t length{dih.size()};
-        for(const char& si:dih)
+        int dih{x};
+        int num{x};
+        int count{};
+        
+        if (num<0)
         {
-            if(si!=dih[length-1])
-            {
-                return false;
-            }
-            length--;
+            return false;
         }
-        return true;
+        while(num>0)
+        {
+            num/=10;
+            count++;
+        }
+        if (x==0||count==1){return true;}
+        long long int r{};
+        while((x) >0)
+        {
+            r=r*10+(x%10);
+            x=x/10;
+            count--;
+
+        }
+        if (r==dih)
+            return true;
+        
+        return false;
+        
+
+       
+
     }
 };
