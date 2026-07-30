@@ -2,12 +2,10 @@ class Solution {
 public:
     bool isValid(string s) {
         std::stack<char> brackt{};
-        int count{};
         for (const char& c:s)
         {
             if(c=='('||c=='{'||c=='[')
             {
-                count++;
                 brackt.push(c);
             }
             else{
@@ -19,7 +17,6 @@ public:
                 {
                     if(brackt.top()=='(')
                     {
-                        count--;
                         brackt.pop();
                         continue;
                     }else{
@@ -30,7 +27,6 @@ public:
                 {
                     if(brackt.top()=='{')
                     {
-                        count--;
                         brackt.pop();
                         continue;
                     }else{
@@ -41,7 +37,6 @@ public:
                 {
                     if(brackt.top()=='[')
                     {
-                        count--;
                         brackt.pop();
                         continue;
                     }else{
@@ -50,6 +45,6 @@ public:
                 }
             }
         }
-        return count==0;
+        return brackt.empty();
     }
 };
