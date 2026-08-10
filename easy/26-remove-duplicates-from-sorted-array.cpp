@@ -1,37 +1,19 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        std::size_t count{};
-        std::size_t l{nums.size()};
-        
-        std::size_t c{};
-        std::size_t i{};
-        
-        while (i<l)
+        int k{};
+        std::size_t cr{};
+        for(std::size_t i{};i<nums.size();i++)
         {
-            nums[c]=nums[i];
-            
-            i++;
-            if( i<l)
+            if(nums[cr]!=nums[i])
             {
-                if(nums[c]==nums[i])
-                {
-                    count+=1;
-                }
-                
-                else
-                {
-                    c++;
-                }
-            }       
-                
+                cr++;
+                nums[cr]=nums[i];
+                k++;
+            }
         }
-        for(std::size_t o{};o<count;o++)
-        {
-            nums[l-count+o];
-        }
+
+        return k+1;
         
-        
-        return (l-count);
     }
 };
