@@ -1,32 +1,39 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        std::size_t i{}, j{}, k{nums.size() - 1};
+        std::size_t bk{};
+        std::size_t cr{};
+        std::size_t fwd{nums.size()-1};
         int trash{};
-        if (nums.size() < 2) {
-
-        } else {
-            while (j <= k) {
-                if (nums[j] == 2) {
-                    trash = nums[k];
-                    nums[k] = nums[j];
-                    nums[j] = trash;
-                    if (k == 0) {
-                        break;
-                    } else {
-                        k--;
-                    }
-
-                } else if (nums[j] == 0) {
-                    trash = nums[i];
-                    nums[i] = nums[j];
-                    nums[j] = trash;
-                    i++;
-                    j++;
-                } else {
-                    j++;
+        while(cr<=fwd)
+        {
+            if(nums[cr]==2)
+            {
+                trash = nums[fwd];
+                nums[fwd]=nums[cr];
+                nums[cr]=trash;
+                if(fwd==0)
+                {
+                    break;
+                }else{
+                    fwd--;
                 }
+                
+                          
+
+            }
+            else if(nums[cr]==0)
+            {
+                trash = nums[bk];
+                nums[bk] = nums[cr];
+                nums[cr]=trash;
+                cr++;
+                bk++;
+            }
+            else{
+                cr++;
             }
         }
+        
     }
 };
