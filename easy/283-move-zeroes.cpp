@@ -1,33 +1,28 @@
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-        std::size_t l{nums.size()};
-        std::size_t i{};
         int count{};
-        for(const auto& num:nums)
+        for(const auto& t:nums)
         {
-            if (num==0)
+            if (t==0)
             {
-                count+=1;
+                count++;
+            }
 
-            }
         }
-        for(auto const& n:nums)
+        std::size_t i{};
+        for(const auto& t:nums)
         {
-            if (n!=0)
+            if(t!=0)
             {
-                nums[i]=n;
-                i+=1;
+                nums[i]=t;
+                i++;
             }
-            else{
-                continue;
-            }
+            
         }
-        
-        for(std::size_t y{};y<count;y++)
+        for(std::size_t j{};j<static_cast<std::size_t>(count);j++)
         {
-            nums[l-count+y]=0;
+            nums[(nums.size()-1)-j]=0;
         }
-        
     }
 };
