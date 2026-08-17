@@ -1,28 +1,20 @@
 class Solution {
 public:
     vector<int> sortedSquares(vector<int>& nums) {
-        std::size_t l{nums.size()};
-        std::size_t i{};
-        std::size_t m{};
-        int j{static_cast<int>(l - 1)};
-        int k{static_cast<int>(l - 1)};
-        std::vector<int> sorted(l);
-        
-        for (const auto& n : nums) {
-
-            nums[i] = n * n;
-
-            i++;
+        std::vector<int> ans(nums.size());
+        std::size_t j{nums.size()-1};
+        for(std::size_t i{};i<nums.size();i++)
+        {
+            nums[i]=nums[i]*nums[i];
         }
-
-        i = 0;
-        for (; i <= k ; j--) {
+        for(std::size_t i{},k{nums.size()-1};i<=k;j--)
+        {
             if (nums[i] > nums[k]) {
-                sorted[j] = nums[i];
+                ans[j] = nums[i];
                 i++;
 
-            } else {
-                sorted[j] = nums[k];
+            } else{
+                ans[j]=nums[k];
                 if (k==0)
                 {
                     break;
@@ -30,10 +22,8 @@ public:
                 else{
                     k--;
                 }
-                
             }
         }
-
-        return sorted;
+        return ans;
     }
 };
